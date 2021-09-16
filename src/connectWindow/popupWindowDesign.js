@@ -1,8 +1,9 @@
-const cssStyles = `
+const cssStyles = elementId => {
+return `
       @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&display=swap');
       @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
-      .outer-container-mew-modal {
+      #${elementId} .outer-container-mew-modal {
         font-family: 'Roboto', sans-serif;
         box-sizing: border-box;
         bottom: 0;
@@ -15,12 +16,24 @@ const cssStyles = `
         right: 0;
         text-align: center;
         top: 0;
-        min-width: 450px;
+        min-width: 100%;
         max-width: 450px;
         max-height: 558px;
       }
-      
-      .container-mew-modal {
+      #${elementId} img, 
+      #${elementId} svg, 
+      #${elementId} video, 
+      #${elementId} canvas, 
+      #${elementId} audio, 
+      #${elementId} iframe, 
+      #${elementId} embed, 
+      #${elementId} object{
+		max-width: unset;
+		height: auto;
+		display: inline-block;
+		vertical-align: middle;
+      }
+      #${elementId} .container-mew-modal {
         font-family: 'Roboto', sans-serif;
         color: #050f19;
         text-align: center;
@@ -41,13 +54,13 @@ const cssStyles = `
         top: 0;
       }
       
-      .upper-text {
+      #${elementId} .upper-text {
         position: relative;
         left: 0;
         bottom: 15px;
       }
       
-     .close-mew-modal{
+     #${elementId} .close-mew-modal{
         position: absolute;
         padding-top: 10px;
         right: 10px !important;
@@ -57,7 +70,7 @@ const cssStyles = `
         z-index: 10;
       }
       
-      .mew-qr-code {
+      #${elementId} .mew-qr-code {
         font-family: 'Roboto', sans-serif;
         color: #050f19;
         height: 210px;
@@ -70,7 +83,7 @@ const cssStyles = `
         border-radius: 8px;
         display: inline-block;
       }
-      .mew-text-one {
+      #${elementId} .mew-text-one {
         min-width: 380px;
         height: 30px;
         color: rgba(0, 0, 0);
@@ -83,7 +96,7 @@ const cssStyles = `
         box-sizing: border-box;
         padding-bottom: 8px;
       }
-      .mew-text-two {
+      #${elementId} .mew-text-two {
         font-family: 'Roboto', sans-serif;
         font-size: 14px;
         color: rgba(0, 0, 0, 0.55);
@@ -94,7 +107,7 @@ const cssStyles = `
         min-width: 265px;
         padding-top: 8px;
       }
-      .mew-list-style {
+      #${elementId} .mew-list-style {
         width: 278px;
         height: 48px;
         color: rgba(0, 0, 0, 0.55);
@@ -109,24 +122,24 @@ const cssStyles = `
         position: relative;
         left: 30px
       }
-      .mew-list-style li {
+      #${elementId} .mew-list-style li {
         margin-left: 0;
         padding-left: 10px;
       }
-      .mew-bottom-background {
-        position: absolute;
+      #${elementId} .mew-bottom-background {
+        position: relative;
         bottom: 0;
-        right: 64px;
+        right: 0;
         border-radius: 0 0 16px 16px;
         background: rgb(249, 250, 251);
         text-align: center;
         padding-top: 25px;
         padding-bottom: 15px;
         max-width: 450px;
-        margin-left: auto;
-        margin-right: auto;
+        margin-left: 0;
+        margin-right: 0;
       }
-      .bottom-container-mew-modal {
+      #${elementId} .bottom-container-mew-modal {
         position: relative;
         font-family: 'Roboto', sans-serif;
         color: #050f19;
@@ -141,24 +154,24 @@ const cssStyles = `
         
       }
 
-      .bottom-container-mew-modal > .left {
+      #${elementId} .bottom-container-mew-modal > .left {
         margin-right: 15px;
       }
 
-      .bottom-container-mew-modal > .center {
+      #${elementId} .bottom-container-mew-modal > .center {
         margin-right: 15px;
       }
 
-      .bottom-container-mew-modal > .right {
+      #${elementId} .bottom-container-mew-modal > .right {
         align-items: flex-start;
         text-align: left;
       }
 
-      .bottom-container-mew-modal > .left-img {
+      #${elementId} .bottom-container-mew-modal > .left-img {
         padding-right: 10px;
       }
 
-      .bottom-container-mew-modal-text {
+      #${elementId} .bottom-container-mew-modal-text {
         font-family: 'Roboto', sans-serif;
         color: #050f19;
         box-sizing: border-box;
@@ -167,7 +180,7 @@ const cssStyles = `
         opacity: 0.5;
         text-align: left;
       }
-      .bottom-container-mew-modal-text-old {
+      #${elementId} .bottom-container-mew-modal-text-old {
         font-family: 'Roboto', sans-serif;
         color: #050f19;
         box-sizing: border-box;
@@ -178,17 +191,17 @@ const cssStyles = `
         text-align: center;
       }
 
-      .spaceman-background {
+      #${elementId} .spaceman-background {
         background-color: white;
         border-radius: 10px;
       }
 
-      p {
+      #${elementId} p {
         margin: 0;
         padding-bottom: 5px;
       }
 
-      .mew-bottom {
+      #${elementId} .mew-bottom {
         color: rgba(0, 0, 0, 0.55);
         font-size: 12px;
         font-family: 'Roboto', sans-serif;
@@ -196,23 +209,23 @@ const cssStyles = `
         letter-spacing: 0.15px;
       }
       
-      .bottom-link {
+      #${elementId} .bottom-link {
       text-decoration: none;
        color: rgba(5, 192, 165);
        cursor: pointer;
       }
       
-      #refresh-container-mew-modal {
+      #${elementId} #refresh-container-mew-modal {
       background: #33c7b0;
       border-radius: 5px;
       padding: 5px;
       }
       
-      #refresh-container-mew-modal:hover {
+      #${elementId} #refresh-container-mew-modal:hover {
       background: #238677;
       }
 
-      .refreshIcon {
+      #${elementId} .refreshIcon {
         padding-top: 5px;
         justify-content: center;
         margin-left: auto;
@@ -221,11 +234,11 @@ const cssStyles = `
         color: #fffff;
       }
 
-      .mew-hidden {
+      #${elementId} .mew-hidden {
         display: none;
       }
       
-      .mew-get-text {
+      #${elementId} .mew-get-text {
         width: 265px;
         height: 16px;
         color: rgb(0, 0, 0);
@@ -235,33 +248,35 @@ const cssStyles = `
         letter-spacing: 0.17px;
       }
       
-      .mew-camera-icon {
+      #${elementId} .mew-camera-icon {
           opacity: 0.54;
           position: relative;
           bottom: -2px;
           height: 14px;
           width: 14px;
         }
-        
-        #mew-google-link:hover {
+        #${elementId} .MEW-StoreLink{
+	        display: inline;
+        }
+        #${elementId} #mew-google-link:hover {
         cursor: pointer;
         }
         
-        #mew-apple-link:hover {
+        #${elementId} #mew-apple-link:hover {
         cursor: pointer;
         }
         
-        .mew-warn-color {
+        #${elementId} .mew-warn-color {
         color: orange;
         }
         
-        .loader-mew,
-        .loader-mew:after {
+        #${elementId} .loader-mew,
+        #${elementId} .loader-mew:after {
           border-radius: 50%;
           width: 10em;
           height: 10em;
         }
-        .loader-mew {
+        #${elementId} .loader-mew {
           margin: 20px auto;
           font-size: 10px;
           position: relative;
@@ -297,7 +312,7 @@ const cssStyles = `
           }
         }
     `;
-
+}
 const htmlDesign = (
   refresh,
   image,
@@ -348,7 +363,7 @@ const htmlDesign = (
             <div class="right">
               <p class="mew-get-text">Don't have MEW&nbsp;wallet app?</p>
               <p id="popupsBlocked" class="mew-warn-color"></p>
-                      <a href="${iosLink}" target="_blank" id="appStore">               <img
+                <a href="${iosLink}" target="_blank" class="MEW-StoreLink" id="appStore"><img
                   id="mew-apple-link"
                   class="left-img"
                   src="${appStore}"
@@ -356,7 +371,7 @@ const htmlDesign = (
                   width="120"
                 /></a>
 
-                      <a href="${androidLink}" target="_blank" id="playStore">                <img
+                <a href="${androidLink}" target="_blank" class="MEW-StoreLink" id="playStore"><img
                   id="mew-google-link"
                   src="${playStore}"
                   height="40"
@@ -531,7 +546,7 @@ const noticetext = `
         top: 0;
         right: 0;
         text-align: right;
-        z-index: 2147483647;
+        z-index: 999998;
       }
 
       #Notifications style {
@@ -798,7 +813,7 @@ ${additionalCss}
       .mew-wallet-modal.is-visible {
         visibility: visible;
         opacity: 0.25;
-        z-index: 999999;
+        z-index: 999998;
       }
 
       div.mew-wallet-modal-dialog {
@@ -849,7 +864,7 @@ ${additionalCss}
       div.mew-wallet-modal-dialog.is-visible {
         visibility: visible;
         opacity: 1;
-        z-index: 99999999999999;
+        z-index: 999998;
       }
 
       .mew-wallet-modal-dialog > * {

@@ -182,8 +182,9 @@ export default class PopUpCreator extends EventEmitter {
     }
     const css = document.createElement('style');
     css.type = 'text/css';
-    if ('textContent' in css) css.textContent = modalCSS(cssStyles);
-    else css.innerText = modalCSS(cssStyles);
+    const cssStyle = cssStyles(modalId);
+    if ('textContent' in css) css.textContent = modalCSS(cssStyle);
+    else css.innerText = modalCSS(cssStyle);
     this.container.appendChild(css);
     const div = window.document.createElement('div');
     div.id = modalId;
@@ -215,6 +216,10 @@ export default class PopUpCreator extends EventEmitter {
       document
         .querySelector('.mew-wallet-modal-container-mew-modal')
         .classList.remove('is-visible');
+        
+        document
+        .querySelector('.mew-wallet-modal-dialog')
+        .classList.remove('is-visible');
       document.querySelector('.modal-dialog').classList.remove('is-visible');
     }
   }
@@ -229,6 +234,9 @@ export default class PopUpCreator extends EventEmitter {
       document.querySelector('.mew-wallet-modal').classList.add('is-visible');
       document
         .querySelector('.mew-wallet-modal-container-mew-modal')
+        .classList.add('is-visible');
+        document
+        .querySelector('.mew-wallet-modal-dialog')
         .classList.add('is-visible');
       document.querySelector('.modal-dialog').classList.add('is-visible');
     }

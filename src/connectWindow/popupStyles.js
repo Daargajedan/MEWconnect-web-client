@@ -9,11 +9,11 @@ const notifierCSS = elementId => {
         height: 23.2px;
       }
 
-      .hidden {
+      #${elementId} .hidden {
         visibility: hidden;
       }
 
-      .shown {
+      #${elementId} .shown {
         visibility: visible;
       }
 
@@ -247,11 +247,11 @@ const connectedNotifierCSS = elementId => {
         justify-self: center;
       }
 
-      .hidden {
+      #${elementId} .hidden {
         visibility: hidden;
       }
 
-      .shown {
+      #${elementId} .shown {
         visibility: visible;
       }
 
@@ -421,16 +421,16 @@ const connectedNotifierCSS = elementId => {
 
 const WindowInformerCSS = `
 
-        div#Notifications.hidden {
-          visibility: hidden; 
-        }
+	#Attach-Mew-Wallet-Modal div#Notifications.hidden {
+		visibility: hidden; 
+	}
+	
+	#Attach-Mew-Wallet-Modal div#Notifications.shown {
+		visibility: visible; 
+	}
         
-        div#Notifications.shown {
-          visibility: visible; 
-        }
-        
-      #Notifications,
-      #Notifications * {
+	#Attach-Mew-Wallet-Modal #Notifications,
+	#Attach-Mew-Wallet-Modal #Notifications * {
 
         animation: none;
         animation-delay: 0;
@@ -585,30 +585,32 @@ const WindowInformerCSS = `
 
       }
 
-      #Notifications * {
+      #Attach-Mew-Wallet-Modal #Notifications * {
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue",
         Arial, sans-serif;
         box-sizing: border-box;
       }
 
-      #Notifications {
+     #Notifications {
         position: fixed;
-        top: 0;
+        top: 500;
         right: 0;
         text-align: right;
-        z-index: 2147483647;
+        z-index: 2147483646;
+        
+        background: red;
       }
 
-      #Notifications style {
+      #Attach-Mew-Wallet-Modal #Notifications style {
         display: none;
       }
 
-      #Notifications .Notification {
+      #Attach-Mew-Wallet-Modal #Notifications .Notification {
         display: block;
         margin: 8px 16px 0 16px;
       }
 
-      #Notifications .NotificationBox {
+      #Attach-Mew-Wallet-Modal #Notifications .NotificationBox {
         display: flex;
         flex-direction: column;
         background-color: #fff;
@@ -625,14 +627,14 @@ const WindowInformerCSS = `
         overflow: hidden;
       }
 
-      #Notifications
+      #Attach-Mew-Wallet-Modal #Notifications
       .Notificationshow
       .NotificationBox {
         opacity: 1;
         transform: translateX(0);
       }
 
-      #Notifications .NotificationContent {
+      #Attach-Mew-Wallet-Modal #Notifications .NotificationContent {
         display: flex;
         flex-direction: row;
         padding: 8px 8px 8px 16px;
@@ -641,25 +643,25 @@ const WindowInformerCSS = `
         cursor: pointer;
       }
 
-      #Notifications .NotificationMessage {
+      #Attach-Mew-Wallet-Modal #Notifications .NotificationMessage {
         display: block;
         color: black;
         line-height: 1.5;
       }
 
-      #Notifications .NotificationChevron {
+      #Attach-Mew-Wallet-Modal #Notifications .NotificationChevron {
         display: block;
         margin-left: 8px;
         transition: transform 0.05s;
       }
 
-      #Notifications .NotificationProgressBar {
+      #Attach-Mew-Wallet-Modal #Notifications .NotificationProgressBar {
         display: block;
         height: 2px;
         position: relative;
       }
 
-      #Notifications .NotificationProgressBar::before {
+      #Attach-Mew-Wallet-Modal #Notifications .NotificationProgressBar::before {
         display: block;
         position: absolute;
         content: "";
@@ -719,41 +721,41 @@ const WindowInformerCSS = `
         }
       }
 
-      #Notifications
+     #Attach-Mew-Wallet-Modal #Notifications
       .NotificationExpand
       .NotificationProgressBar {
         margin-bottom: -1px;
       }
 
-      #Notifications
+      #Attach-Mew-Wallet-Modal #Notifications
       .NotificationExpand
       .NotificationChevron {
         transform: rotateZ(180deg);
       }
 
-      #Notifications .NotificationActions {
+      #Attach-Mew-Wallet-Modal #Notifications .NotificationActions {
         display: none;
         flex-direction: column;
         border-top: 1px solid #f5f7f8;
         padding: 8px 16px;
       }
 
-      #Notifications
+      #Attach-Mew-Wallet-Modal #Notifications
       .NotificationExpand
       .NotificationActions {
         display: flex;
       }
 
-      #Notifications .NotificationAction {
+      #Attach-Mew-Wallet-Modal #Notifications .NotificationAction {
         color: #888;
         margin: 8px 0;
       }
 
-      #Notifications .NotificationButtonInfo {
+      #Attach-Mew-Wallet-Modal #Notifications .NotificationButtonInfo {
         margin: 0 8px 0 0;
       }
 
-      #Notifications .NotificationButton {
+      #Attach-Mew-Wallet-Modal #Notifications .NotificationButton {
         color: #1652f0;
         -webkit-text-fill-color: #1652f0;
         cursor: pointer;
@@ -764,7 +766,7 @@ const WindowInformerCSS = `
         transition: opacity 0.25s;
       }
 
-      #Notifications .NotificationButton:active {
+      #Attach-Mew-Wallet-Modal #Notifications .NotificationButton:active {
         opacity: 0.6;
       }
       `;
